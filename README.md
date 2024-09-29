@@ -15,11 +15,13 @@ This project implements essential graph algorithms such as Dijkstra's algorithm 
 To spin up the development environment, you can use Docker. Below are the steps:
 
 1. Run the following Docker command in the project directory:
-    For macOS: `docker run -it -v $PWD:/app clojure bash`
-    For Linux: `docker run -it -v $(pwd):/app clojure bash`
+ - **For macOS:** `docker run -it -v $PWD:/app clojure bash`
+ - **For Linux:** `docker run -it -v $(pwd):/app clojure bash`
 2. Once inside the container, start the Clojure REPL with:
-    `cd /app`
-    `lein repl`
+```
+cd /app
+lein repl
+```
 Now you can run the functions defined in the project.
 
 ## Visualizing the Graph
