@@ -66,6 +66,6 @@ Example:
 `(println (generate-graphviz random-graph))`
 
 ## Notes
-- If no path exists between two vertices, the result for shortest-path will be nil, and the diameter could be indefinite (infinite).
+- If no path exists between two vertices, the result for shortest-path will be nil, and the diameter could be infinite.
 - Use a higher sparseness number to ensure better connectivity in the graph.
 
