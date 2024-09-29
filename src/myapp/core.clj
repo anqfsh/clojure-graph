@@ -117,7 +117,17 @@
     (apply max eccentricities)))
 
 
+(defn generate-graphviz [graph]
+  (let [edges (for [[from neighbors] graph
+                    [to weight] neighbors]
+                (str (name from) " -> " (name to) " [label=\"" weight "\"];"))]
+    (str "digraph G {\n"
+         (clojure.string/join "\n" edges)
+         "\n}")))
+
+
 (def random-graph (make-graph 10 10))
+(println (generate-graphviz random-graph))
 (shortest-path random-graph (first (keys random-graph)) (last (keys random-graph))) ; => list of nodes which is the shortest path by edge weight between the 2 nodes, or no path if one does not exist.
 (eccentricity random-graph (first (keys random-graph))) ; => number expressing eccentricity for `first` vertex in random-graph
 (radius random-graph) ; => minimal eccentricity
