@@ -11,7 +11,6 @@ Here is an example of a graph definition using a Clojure map, where the keys are
             :D {}})
 ```
 ![Graph Visualization](./images/graph-diagram.png)
-The Graphviz of this graph is:
 ```
 digraph G {
     A -> B [label="5"];
@@ -21,7 +20,7 @@ digraph G {
     C -> D [label="1"];
 }
 ```
-Can render the graph in [Graphviz Online](https://dreampuf.github.io/GraphvizOnline).
+The Graphviz code above can be rendered using [Graphviz Online](https://dreampuf.github.io/GraphvizOnline) to visualize the graph.
 
 ## Core Functions
 
