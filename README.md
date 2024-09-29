@@ -1,6 +1,6 @@
 # Graph Algorithms in Clojure
 
-This project implements essential graph algorithms such as Dijkstra's algorithm and calculates graph properties like eccentricity, radius, and diameter for a directed weighted graph.
+This project implements essential graph algorithms such as Dijkstra's algorithm and calculates graph properties like eccentricity, radius, and diameter for a simple directed weighted graph (no loop, no duplicate path).
 
 ## Graph Definition
 Here is an example of a graph definition using a Clojure map, where the keys are vertices and the values are the neighboring vertices with edge weights:
