@@ -1,44 +1,49 @@
-# myapp
+# Graph Algorithms in Clojure
 
-FIXME: description
+This project implements essential graph algorithms such as Dijkstra's algorithm and calculates graph properties like eccentricity, radius, and diameter for a directed weighted graph.
 
-## Installation
+## Core Functions
 
-Download from http://example.com/FIXME.
+- **`make-graph`**: Generates a random graph with `N` vertices and `S` edges.
+- **`shortest-path`**: Finds the shortest path between two vertices, returning a list of nodes or `nil` if no path exists.
+- **`eccentricity`**: Calculates the eccentricity of a vertex (the greatest distance from that vertex to any other reachable vertex).
+- **`radius`**: Returns the smallest eccentricity across all vertices.
+- **`diameter`**: Returns the largest eccentricity across all vertices. Note: If no path exists between vertices, the diameter may be infinite.
 
-## Usage
+## Development Setup with Docker
 
-FIXME: explanation
+To spin up the development environment, you can use Docker. Below are the steps:
 
-    $ java -jar myapp-0.1.0-standalone.jar [args]
+1. Run the following Docker command in the project directory:
+    For macOS: `docker run -it -v $PWD:/app clojure bash`
+    For Linux: `docker run -it -v $(pwd):/app clojure bash`
+2. Once inside the container, start the Clojure REPL with:
+    `cd /app`
+    `lein repl`
+Now you can run the functions defined in the project.
 
-## Options
+## Visualizing the Graph
+To visualize the generated graph, print the Graphviz code using generate-graphviz and paste the output into [Graphviz Online](https://dreampuf.github.io/GraphvizOnline)
 
-FIXME: listing of options this app accepts.
+Example:
+`(println (generate-graphviz random-graph))`
 
-## Examples
+## Example Usage
+```
+(def random-graph (make-graph 10 10))
 
-...
+(println (generate-graphviz random-graph))
 
-### Bugs
+(shortest-path random-graph (first (keys random-graph)) (last (keys random-graph))) ; => List of nodes or `nil`
 
-...
+(eccentricity random-graph (first (keys random-graph))) ; => Eccentricity for the first vertex
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+(radius random-graph) ; => Minimal eccentricity
 
-## License
+(diameter random-graph) ; => Maximal eccentricity
+```
 
-Copyright © 2024 FIXME
+## Notes
+- If no path exists between two vertices, the result for shortest-path will be nil, and the diameter could be indefinite (infinite).
+- Use a higher sparseness number to ensure better connectivity in the graph.
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
