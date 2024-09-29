@@ -2,6 +2,27 @@
 
 This project implements essential graph algorithms such as Dijkstra's algorithm and calculates graph properties like eccentricity, radius, and diameter for a directed weighted graph.
 
+## Graph Definition
+Here is an example of a graph definition using a Clojure map, where the keys are vertices and the values are the neighboring vertices with edge weights:
+```
+(def graph {:A {:B 5, :C 2}
+            :B {:C 1, :D 3}
+            :C {:D 1}
+            :D {}})
+```
+![Graph Visualization](./images/graph-diagram.png)
+The Graphviz of this graph is:
+```
+digraph G {
+    A -> B [label="5"];
+    A -> C [label="2"];
+    B -> C [label="1"];
+    B -> D [label="3"];
+    C -> D [label="1"];
+}
+```
+Can render the graph in [Graphviz Online](https://dreampuf.github.io/GraphvizOnline).
+
 ## Core Functions
 
 - **`make-graph`**: Generates a random graph with `N` vertices and `S` edges.
