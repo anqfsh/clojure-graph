@@ -24,12 +24,6 @@ lein repl
 ```
 Now you can run the functions defined in the project.
 
-## Visualizing the Graph
-To visualize the generated graph, print the Graphviz code using generate-graphviz and paste the output into [Graphviz Online](https://dreampuf.github.io/GraphvizOnline)
-
-Example:
-`(println (generate-graphviz random-graph))`
-
 ## Example Usage
 ```
 (def random-graph (make-graph 10 10))
@@ -44,6 +38,12 @@ Example:
 
 (diameter random-graph) ; => Maximal eccentricity
 ```
+
+## Visualizing the Graph
+To visualize the generated graph, print the Graphviz code using generate-graphviz and paste the output into [Graphviz Online](https://dreampuf.github.io/GraphvizOnline)
+
+Example:
+`(println (generate-graphviz random-graph))`
 
 ## Notes
 - If no path exists between two vertices, the result for shortest-path will be nil, and the diameter could be indefinite (infinite).
